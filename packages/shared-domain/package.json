@@ -1,0 +1,35 @@
+{
+  "name": "@packages/shared-domain",
+  "version": "0.0.1",
+  "description": "Shared Domain and Models",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@packages/config-eslint": "workspace:*",
+    "@packages/config-typescript": "workspace:*",
+    "@packages/config-vitest": "workspace:*",
+    "@types/node": "^25.0.0",
+    "eslint": "^10.2.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.9.3"
+  }
+}

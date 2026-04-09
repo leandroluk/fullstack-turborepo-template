@@ -1,5 +1,5 @@
 {
-  "name": "@templates/web",
+  "name": "@templates/doc",
   "version": "0.0.1",
   "description": "Template project using Next.js and already configured with monorepo configs",
   "private": true,
@@ -12,19 +12,30 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@theguild/remark-mermaid": "0.3.0",
+    "clsx": "2.1.1",
+    "mdx": "0.3.1",
     "next": "16.2.3",
+    "nextra": "4.6.1",
+    "nextra-theme-docs": "4.6.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-icons": "5.6.0",
+    "react-zoom-pan-pinch": "4.0.3",
+    "tailwind-merge": "3.5.0"
   },
   "devDependencies": {
     "@packages/config-eslint": "workspace:*",
     "@packages/config-typescript": "workspace:*",
+    "@packages/config-vitest": "workspace:*",
     "@tailwindcss/postcss": "^4",
+    "@types/mdx": "2.0.13",
     "@types/node": "^25.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^10.2.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.0.0"
   }
 }

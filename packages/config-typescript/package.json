@@ -1,0 +1,12 @@
+{
+  "name": "@packages/config-typescript",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Shared TypeScript configurations for the monorepo",
+  "exports": {
+    "./*": "./*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

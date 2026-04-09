@@ -1,0 +1,107 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "template:api",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "start:debug"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesApi}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
+    },
+    {
+      "name": "template:web",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesWeb}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "template:app",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesApp}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "template:e2e",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "test:e2e"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesE2e}",
+      "console": "integratedTerminal"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "templatesApi",
+      "type": "pickString",
+      "description": "Selecione a API",
+      "options": [
+        "api"
+      ]
+    },
+    {
+      "id": "templatesWeb",
+      "type": "pickString",
+      "description": "Selecione o Frontend",
+      "options": [
+        "web"
+      ]
+    },
+    {
+      "id": "templatesApp",
+      "type": "pickString",
+      "description": "Selecione o App",
+      "options": [
+        "app"
+      ]
+    },
+    {
+      "id": "templatesE2e",
+      "type": "pickString",
+      "description": "Selecione o Suite E2E",
+      "options": [
+        "e2e"
+      ]
+    }
+  ]
+}

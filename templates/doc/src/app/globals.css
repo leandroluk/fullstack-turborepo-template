@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "nextra-theme-docs/style.css";
+
+:root {
+  --nextra-content-width: 100% !important;
+}
+
+/* #region mermaid */
+
+.mermaid-container .mermaid {
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+}
+
+.mermaid-container .mermaid svg {
+  height: auto !important;
+  max-width: none !important;
+}
+
+/* #endregion */
+
+/* #region nextra */
+
+.nextra-sidebar {
+  width: 100% !important;
+  max-width: 360px !important;
+}
+
+.nextra-sidebar ul::before {
+  content: none !important;
+}
+
+.nextra-sidebar-footer {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+/* #endregion */

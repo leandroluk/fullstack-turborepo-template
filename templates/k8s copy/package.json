@@ -1,0 +1,29 @@
+{
+  "name": "@templates/k8s",
+  "version": "0.0.1",
+  "description": "Template project using Kubernetes and already configured with monorepo configs",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "preview": "pulumi preview",
+    "deploy": "pulumi up --yes"
+  },
+  "dependencies": {
+    "@pulumi/aws": "^7.0.0",
+    "@pulumi/awsx": "^3.0.0",
+    "@pulumi/kubernetes": "^4.0.0",
+    "@pulumi/pulumi": "^3.113.0"
+  },
+  "devDependencies": {
+    "@packages/config-eslint": "workspace:*",
+    "@packages/config-typescript": "workspace:*",
+    "@packages/config-vitest": "workspace:*",
+    "@types/node": "^25.0.0",
+    "eslint": "^10.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  }
+}

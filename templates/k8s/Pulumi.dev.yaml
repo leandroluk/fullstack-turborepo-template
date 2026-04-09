@@ -1,0 +1,7 @@
+config:
+  aws:region: us-east-1
+  k8s:desiredClusterSize: "2"
+  k8s:eksNodeInstanceType: t3.medium
+  k8s:maxClusterSize: "10"
+  k8s:minClusterSize: "1"
+  k8s:vpcNetworkCidr: 10.0.0.0/16
