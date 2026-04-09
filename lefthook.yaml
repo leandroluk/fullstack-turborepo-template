@@ -1,25 +1,30 @@
-# Configuração do Lefthook para automação de Git Hooks
-# Documentação completa: https://lefthook.dev/configuration
+# Configuration of Lefthook for Git Hooks automation
+# Documentation: https://lefthook.dev/configuration
 
-# Hook executado antes do commit
+# Hook executed before commit
 commit-msg:
   jobs:
     - name: commitlint
       run: pnpm commitlint --edit {1}
 
-# Hook executado antes do commit
+# Hook executed before commit
 pre-commit:
   jobs:
-    # executa o lint nos arquivos modificados
-    - name: lint
-      glob: "**/*.{ts,tsx,js,jsx}"
-      run: pnpm turbo lint --filter=[{staged_files}]
-      stage_fixed: true
-
-    # aplica a verificação de tipos no projeto
+    # applies type checking to the project
     - name: typecheck
       run: pnpm turbo typecheck
 
-    # executa o build do projeto
+    # executes the build only in packages affected by staged changes
     - name: build
-      run: pnpm turbo build --filter=[{staged_files}]...
+      run: pnpm turbo build --affected
+
+    # executes the lint only in packages affected by staged changes
+    - name: lint
+      run: pnpm turbo lint --affected
+
+# Hook executed before push
+pre-push:
+  jobs:
+    # executes the tests only in packages affected by changes
+    - name: test
+      run: pnpm turbo test --affected
