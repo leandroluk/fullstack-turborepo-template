@@ -9,7 +9,6 @@ commit-msg:
 
 # Hook executado antes do commit
 pre-commit:
-  parallel: true
   jobs:
     # executa o lint nos arquivos modificados
     - name: lint

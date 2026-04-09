@@ -407,43 +407,6 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4(@opentelemetry/api@1.9.1)(@types/node@25.5.2)(@vitest/coverage-v8@4.1.4)(vite@7.3.2(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
 
-  templates/k8s copy:
-    dependencies:
-      '@pulumi/aws':
-        specifier: ^7.0.0
-        version: 7.24.0(ts-node@10.9.2(@types/node@25.5.2)(typescript@5.9.3))(typescript@5.9.3)
-      '@pulumi/awsx':
-        specifier: ^3.0.0
-        version: 3.4.0(ts-node@10.9.2(@types/node@25.5.2)(typescript@5.9.3))(typescript@5.9.3)
-      '@pulumi/kubernetes':
-        specifier: ^4.0.0
-        version: 4.28.0(ts-node@10.9.2(@types/node@25.5.2)(typescript@5.9.3))(typescript@5.9.3)
-      '@pulumi/pulumi':
-        specifier: ^3.113.0
-        version: 3.230.0(ts-node@10.9.2(@types/node@25.5.2)(typescript@5.9.3))(typescript@5.9.3)
-    devDependencies:
-      '@packages/config-eslint':
-        specifier: workspace:*
-        version: link:../../packages/config-eslint
-      '@packages/config-typescript':
-        specifier: workspace:*
-        version: link:../../packages/config-typescript
-      '@packages/config-vitest':
-        specifier: workspace:*
-        version: link:../../packages/config-vitest
-      '@types/node':
-        specifier: ^25.0.0
-        version: 25.5.2
-      eslint:
-        specifier: ^10.2.0
-        version: 10.2.0(jiti@2.6.1)
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-      vitest:
-        specifier: ^4.1.4
-        version: 4.1.4(@opentelemetry/api@1.9.1)(@types/node@25.5.2)(@vitest/coverage-v8@4.1.4)(vite@7.3.2(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
-
   templates/web:
     dependencies:
       next:
