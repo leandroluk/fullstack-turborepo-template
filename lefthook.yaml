@@ -3,8 +3,8 @@
 
 # Hook executed before commit
 commit-msg:
-  jobs:
-    - name: commitlint
+  commands:
+    commitlint:
       run: pnpm commitlint --edit {1}
 
 # Hook executed before commit
