@@ -1,0 +1,41 @@
+{
+  "name": "@packages/config-vitest",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Shared Vitest configurations for the monorepo",
+  "type": "module",
+  "exports": {
+    "./base": {
+      "types": "./dist/base.d.ts",
+      "import": "./dist/base.js",
+      "default": "./dist/base.js"
+    },
+    "./nest": {
+      "types": "./dist/nest.d.ts",
+      "import": "./dist/nest.js",
+      "default": "./dist/nest.js"
+    },
+    "./next": {
+      "types": "./dist/next.d.ts",
+      "import": "./dist/next.js",
+      "default": "./dist/next.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js",
+      "default": "./dist/react.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "@vitest/coverage-v8": "^4.1.4",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "4.1.4"
+  }
+}
