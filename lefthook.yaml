@@ -10,13 +10,13 @@ commit-msg:
 # Hook executed before commit
 pre-commit:
   jobs:
+    # executa o build apenas nos pacotes do diretório packages/
+    - name: build
+      run: pnpm turbo build --filter=./packages/*
+
     # applies type checking to the project
     - name: typecheck
       run: pnpm turbo typecheck
-
-    # executes the build only in packages affected by staged changes
-    - name: build
-      run: pnpm turbo build --affected
 
     # executes the lint only in packages affected by staged changes
     - name: lint
@@ -25,6 +25,10 @@ pre-commit:
 # Hook executed before push
 pre-push:
   jobs:
+    # executes the build only in packages affected by staged changes
+    - name: build
+      run: pnpm turbo build --affected
+
     # executes the tests only in packages affected by changes
     - name: test
       run: pnpm turbo test --affected
