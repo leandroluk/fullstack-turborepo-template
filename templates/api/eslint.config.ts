@@ -1,13 +1,12 @@
-import baseConfig from '@packages/config-eslint/base';
+import nestConfig from '@packages/config-eslint/nest';
 import {defineConfig} from 'eslint/config';
 
-
 export default defineConfig([
-  ...baseConfig,
+  ...nestConfig,
   {
     languageOptions: {
       parserOptions: {
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: __dirname,
       },
     },
   },
