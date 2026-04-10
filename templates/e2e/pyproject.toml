@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "e2e"
+version = "0.1.0"
+description = "Template for end-to-end tests"
+requires-python = ">=3.12"
+dependencies = [
+  "faker>=40.1.2",
+  "psycopg2>=2.9.11",
+  "python-dotenv>=1.2.1",
+  "robotframework>=7.4.1",
+  "robotframework-databaselibrary>=2.4.1",
+  "robotframework-imaplibrary2>=0.4.11",
+  "robotframework-requests>=0.9.7",
+  "robotframework-robocop>=7.2.0",
+  "robotframework-seleniumlibrary>=6.8.0",
+  "ruff>=0.15.10",
+]
+
+[tool.uv]
+package = false
+
+[tool.robotcode]
+python_path = ["."]
+
+[tool.robot]
+paths = ["test"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+ignore = ["S101", "S105", "N802", "S608"]
+select = ["E", "F", "I", "N", "UP", "ASYNC", "S"]
+
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+files = ["apps/api", "apps/e2e"]
+exclude = ["test/", ".venv/"]
+warn_return_any = true
+warn_unused_configs = true
+disallow_any_unimported = false
+disallow_any_expr = false
+disallow_any_decorated = false
+disallow_any_explicit = false
+disallow_any_generics = false
+disallow_subclassing_any = false
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.pyright]
+include = ["."]
+exclude = ["**/__pycache__", "**/.venv"]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+reportImplicitStringConcatenation = false
+reportUnknownMemberType = "information"
+reportUnknownArgumentType = "information"
+reportUnknownLambdaType = "information"
+reportMissingTypeStubs = false
+reportUnusedImport = "information"
+reportUnusedVariable = "information"
+reportUnknownVariableType = "information"
+reportGeneralTypeIssues = "warning"
+reportOptionalMemberAccess = "none"
+reportAttributeAccessIssue = "none"
+reportInvalidTypeVarUse = "none"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.408",
+]

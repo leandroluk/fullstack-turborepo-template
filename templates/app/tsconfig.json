@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "expo/tsconfig.base",
-    "@packages/config-typescript/expo.json"
-  ],
+  "extends": "@packages/config-typescript/expo.json",
   "compilerOptions": {
     "strict": true,
     "paths": {
@@ -15,6 +12,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
   ]
 }

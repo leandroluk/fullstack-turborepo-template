@@ -23,7 +23,15 @@
     // Barreler for typescript apps
     "mikerhyssmith.ts-barrelr",
     // Markdown syntax support for the Mermaid charting language
-    "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+    "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+    // Robot Framework Language Server
+    "robotcode.robotcode",
+    // Ruff - The fastest Python linter
+    "charliermarsh.ruff",
+    // Python extension
+    "ms-python.python",
+    // Pyright extension
+    "ms-python.pyright",
   ],
   "unwantedRecommendations": [
     // Code formatter using prettier

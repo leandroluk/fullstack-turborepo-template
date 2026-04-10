@@ -9,8 +9,6 @@ commit-msg:
 
 # Hook executed before commit
 pre-commit:
-  parallel: true
-  fail_fast: true
   commands:
     # execute build only in packages in the packages/ directory
     build:
@@ -26,8 +24,6 @@ pre-commit:
 
 # Hook executed before push
 pre-push:
-  parallel: true
-  fail_fast: true
   commands:
     # executes the build only in packages affected by staged changes
     build:

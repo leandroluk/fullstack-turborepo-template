@@ -36,3 +36,15 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Python
+.robot
+.ruff_cache
+.egg-info
+.pytest_cache
+.mypy_cache
+.venv
+.reports
+
+# eslint
+.eslintcache

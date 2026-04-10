@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+    // template:api
     {
       "name": "template:api",
       "type": "node",
@@ -21,24 +22,7 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    {
-      "name": "template:web",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "run",
-        "dev"
-      ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesWeb}",
-      "console": "integratedTerminal",
-      "env": {
-        "NODE_OPTIONS": "--no-deprecation"
-      },
-      "skipFiles": [
-        "<node_internals>/**"
-      ]
-    },
+    // template:app
     {
       "name": "template:app",
       "type": "node",
@@ -57,6 +41,26 @@
         "<node_internals>/**"
       ]
     },
+    // template:doc
+    {
+      "name": "template:doc",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesDoc}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    // template:e2e
     {
       "name": "template:e2e",
       "type": "node",
@@ -68,9 +72,47 @@
       ],
       "cwd": "${workspaceFolder}/templates/${input:templatesE2e}",
       "console": "integratedTerminal"
-    }
+    },
+    // template:k8s
+    {
+      "name": "template:k8s",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "debug"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesK8s}",
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
+    },
+    // template:web
+    {
+      "name": "template:web",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesWeb}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
   ],
   "inputs": [
+    // template:api
     {
       "id": "templatesApi",
       "type": "pickString",
@@ -79,14 +121,7 @@
         "api"
       ]
     },
-    {
-      "id": "templatesWeb",
-      "type": "pickString",
-      "description": "Selecione o Frontend",
-      "options": [
-        "web"
-      ]
-    },
+    // template:app
     {
       "id": "templatesApp",
       "type": "pickString",
@@ -95,6 +130,16 @@
         "app"
       ]
     },
+    // template:doc
+    {
+      "id": "templatesDoc",
+      "type": "pickString",
+      "description": "Selecione a Documentação",
+      "options": [
+        "doc"
+      ]
+    },
+    // template:e2e
     {
       "id": "templatesE2e",
       "type": "pickString",
@@ -102,6 +147,24 @@
       "options": [
         "e2e"
       ]
-    }
+    },
+    // template:k8s
+    {
+      "id": "templatesK8s",
+      "type": "pickString",
+      "description": "Selecione o K8s",
+      "options": [
+        "k8s"
+      ]
+    },
+    // template:web
+    {
+      "id": "templatesWeb",
+      "type": "pickString",
+      "description": "Selecione o Frontend",
+      "options": [
+        "web"
+      ]
+    },
   ]
 }

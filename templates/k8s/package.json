@@ -5,15 +5,19 @@
   "private": true,
   "type": "module",
   "license": "UNLICENSED",
+  "main": "src/index.ts",
   "scripts": {
+    "debug": "cross-env NODE_OPTIONS='--inspect-brk' pulumi up --stack dev -c isLocal=true --yes",
     "lint": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "preview": "pulumi preview",
     "deploy": "pulumi up --yes"
   },
   "dependencies": {
+    "@pulumi/aws": "7.24.0",
     "@pulumi/awsx": "^3.0.0",
     "@pulumi/eks": "^3.0.0",
+    "@pulumi/kubernetes": "4.28.0",
     "@pulumi/pulumi": "^3.113.0"
   },
   "devDependencies": {

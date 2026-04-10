@@ -1,0 +1,13 @@
+{
+  "name": "@templates/e2e",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "cluster:up": "k3d cluster create e2e-stack --wait",
+    "cluster:down": "k3d cluster delete e2e-stack",
+    "test:e2e": "uv run robot --outputdir ../../reports ./tests",
+    "lint": "uv run ruff check . && uv run ruff format --check .",
+    "format": "uv run ruff format .",
+    "typecheck": "uv run pyright ."
+  }
+}

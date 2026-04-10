@@ -1,3 +1,7 @@
-import base from "./dist/base.js";
+import {defineConfig} from 'tsup';
+import baseConfig from './dist/base.js';
 
-export default base;
+export default defineConfig([
+  ...baseConfig,
+  {languageOptions: {parserOptions: {tsconfigRootDir: import.meta.dirname}}}
+]);

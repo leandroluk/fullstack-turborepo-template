@@ -1,5 +1,6 @@
 config:
   aws:region: us-east-1
+  k8s:isLocal: "true"
   k8s:desiredClusterSize: "2"
   k8s:eksNodeInstanceType: t3.medium
   k8s:maxClusterSize: "10"

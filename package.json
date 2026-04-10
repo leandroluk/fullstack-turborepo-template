@@ -8,7 +8,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "typecheck": "turbo run typecheck",
-    "clear": "pnpm dlx rimraf --glob \"**/{.turbo,.next,.coverage,dist,node_modules,pnpm-lock.yaml}\""
+    "clear": "pnpm dlx rimraf --glob \"**/{.turbo,.next,.coverage,dist,node_modules,pnpm-lock.yaml,.robot,.ruff_cache,.egg-info,.pytest_cache,.mypy_cache,.venv,.reports}\""
   },
   "devDependencies": {
     "@commitlint/cli": "20.5.0",
