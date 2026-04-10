@@ -7,27 +7,27 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 const baseConfig = defineConfig([
-  // Ignore configuration files and build folders
+  // Ignora arquivos de configuração e pastas de build
   {
     ignores: ['node_modules/**', 'dist/**', 'coverage/**', '**/*.config.{mjs,cjs,ts,js}'],
   },
 
-  // Base ESLint configurations
+  // Configurações base do ESLint
   js.configs.recommended,
 
-  // Base TypeScript configurations
+  // Configurações base do TypeScript
   tseslint.configs.recommendedTypeChecked,
 
-  // Base Prettier configurations
+  // Configurações base do Prettier
   prettier,
 
-  // Turbo plugin configurations
+  // Configurações do plugin Turbo
   {
     plugins: {turbo},
     rules: {'turbo/no-undeclared-env-vars': 'warn'},
   },
 
-  // Vitest plugin configurations
+  // Configurações do plugin Vitest
   {
     files: ['**/*.test.ts', '**/*.spec.ts'],
     plugins: {vitest},
@@ -41,7 +41,7 @@ const baseConfig = defineConfig([
     },
   },
 
-  // Global configurations
+  // Configurações globais
   {
     languageOptions: {
       globals: globals.es2021,
@@ -51,7 +51,7 @@ const baseConfig = defineConfig([
     },
   },
 
-  // General rules
+  // Regras gerais
   {
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',

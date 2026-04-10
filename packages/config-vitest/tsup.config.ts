@@ -1,13 +1,18 @@
-import {defineConfig} from 'tsup';
+import {defineConfig} from 'tsup'
 
 export default defineConfig({
   entry: ['src/base.ts', 'src/nest.ts', 'src/next.ts', 'src/react.ts'],
   format: ['esm'],
   dts: true,
   clean: true,
-  splitting: false,
+  platform: 'node',
+  splitting: true,
   external: [
     'vitest',
-    'vitest/config'
-  ]
-});
+    'vitest/config',
+    'vite',
+    '@vitest/config',
+    'vite-tsconfig-paths',
+    '@vitest/coverage-v8',
+  ],
+})

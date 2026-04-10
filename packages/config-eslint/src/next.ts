@@ -9,22 +9,22 @@ import tseslint from 'typescript-eslint';
 import baseConfig from './base';
 
 const nextConfig = defineConfig([
-  // Base configurations
+  // Configurações base
   ...baseConfig,
 
-  // ESLint configurations
+  // Configurações do ESLint
   js.configs.recommended,
 
-  // Prettier configurations
+  // Configurações do Prettier
   eslintConfigPrettier,
 
-  // TypeScript configurations
+  // Configurações do TypeScript
   ...tseslint.configs.recommended,
 
-  // Global configurations
+  // Configurações globais
   globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
 
-  // React configurations
+  // Configurações do React
   {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
@@ -35,7 +35,7 @@ const nextConfig = defineConfig([
     },
   },
 
-  // Next.js configurations
+  // Configurações do Next.js
   {
     plugins: {'@next/next': pluginNext as any},
     rules: {
@@ -44,9 +44,9 @@ const nextConfig = defineConfig([
     },
   },
 
-  // React Hooks configurations
-  // Note: version is declared explicitly to avoid using context.getFilename()
-  // removed in ESLint 10 — while eslint-plugin-react@7.x is not updated.
+  // Configurações do React Hooks
+  // Nota: a versão é declarada explicitamente para evitar o uso de context.getFilename()
+  // removido no ESLint 10 — enquanto o eslint-plugin-react@7.x não é atualizado.
   {
     plugins: {'react-hooks': pluginReactHooks},
     settings: {react: {version: '19'}},

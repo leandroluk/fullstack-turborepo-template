@@ -1,7 +1,7 @@
 {
   "name": "@templates/k8s",
   "version": "0.0.1",
-  "description": "Template project using Kubernetes and already configured with monorepo configs",
+  "description": "Template de projeto usando Kubernetes e já configurado com configs de monorepo",
   "private": true,
   "type": "module",
   "license": "UNLICENSED",

@@ -1,7 +1,7 @@
 {
   "name": "@templates/app",
   "version": "0.0.1",
-  "description": "Template project using Expo and already configured with monorepo configs",
+  "description": "Template de projeto usando Expo e já configurado com configs de monorepo",
   "private": true,
   "license": "UNLICENSED",
   "main": "expo-router/entry",

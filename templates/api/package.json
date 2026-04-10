@@ -1,7 +1,7 @@
 {
   "name": "@templates/api",
   "version": "0.0.1",
-  "description": "Template project using NestJS and already configured with monorepo configs",
+  "description": "Template de projeto usando NestJS e já configurado com configs de monorepo",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

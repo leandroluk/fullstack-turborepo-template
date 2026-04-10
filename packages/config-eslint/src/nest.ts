@@ -3,10 +3,10 @@ import globals from 'globals';
 import baseConfig from './base';
 
 const nestConfig = defineConfig([
-  // Base configurations
+  // Configurações base
   ...baseConfig,
 
-  // Global configurations
+  // Configurações globais
   {
     languageOptions: {
       globals: {

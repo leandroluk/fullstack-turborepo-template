@@ -1,135 +1,103 @@
-# {{company}} — Monorepo Template
+# Metha Energia Workspace
 
-Welcome to the **{{company}}** central repository. This workspace is orchestrated by [Turborepo](https://turbo.build/) to manage microservices, frontends, and shared libraries in a unified development environment.
+Bem-vindo ao repositório central da **Metha Energia**. Este workspace utiliza uma arquitetura de Git Submodules para gerenciar microsserviços e bibliotecas compartilhadas de forma independente, mantendo um ambiente de desenvolvimento unificado.
 
-## 🏗️ Architecture & Tech Stack
+## 🚀 Projetos
 
-### Applications (`apps/`)
+### Aplicações (`apps/`)
+- **[app](https://github.com/metha-energia/apps-identity-api)**: Serviço de gerenciamento de usuários e autenticação.
+- **[customer-api](https://github.com/metha-energia/apps-customer-api)**: Serviço responsável pela lógica de negócio relacionada a clientes.
+- **[supplier-api](https://github.com/metha-energia/apps-supplier-api)**: Serviço de gerenciamento de fornecedores e ativos de energia.
 
-| App                | Description                                                                                   |
-| ------------------ | --------------------------------------------------------------------------------------------- |
-| **`template-api`** | Backend service built with [NestJS](https://nestjs.com/)                                      |
-| **`template-web`** | Main web frontend using [Next.js](https://nextjs.org/) (App Router)                           |
-| **`template-app`** | Mobile application powered by [React Native](https://reactnative.dev/)                        |
-| **`template-doc`** | Documentation site built with [Nextra](https://nextra.site/)                                  |
-| **`template-k8s`** | Infrastructure-as-Code (IaC) using [Pulumi](https://www.pulumi.com/) and Kubernetes manifests |
-
-### Packages (`packages/`)
-
-| Package                 | Description                                                            |
-| ----------------------- | ---------------------------------------------------------------------- |
-| **`config-eslint`**     | Shared ESLint configurations (Next.js, NestJS, Prettier)               |
-| **`config-typescript`** | Base `tsconfig.json` files used across the workspace                   |
-| **`config-vitest`**     | Global Vitest configurations for unit and integration testing          |
-| **`shared-types`**      | Zod schemas and TypeScript interfaces shared between API and frontends |
+### Bibliotecas (`libs/`)
+- **[config](https://github.com/metha-energia/libs-config)**: Configurações compartilhadas de desenvolvimento (ESLint 10, TypeScript, Vitest, Lefthook).
+- **[domain](https://github.com/metha-energia/libs-domain)**: Entidades de domínio, schemas e regras de negócio compartilhadas.
 
 ---
 
-## 🏁 Getting Started
+## 🌍 Domínio e Contextos Delimitados
 
-### Prerequisites
+O ecossistema Metha Energia é organizado em diversos Contextos Delimitados (Bounded Contexts), garantindo uma separação clara de responsabilidades e uma arquitetura escalável:
 
-- **Node.js**: v20+ (LTS recommended)
-- **pnpm**: v9+
-- **Turborepo**: `npm install -g turbo`
+- **Identity (IAM)**: Gerencia usuários, papéis (RBAC: USER, ADMIN, MANAGER) e autenticação (SSO Microsoft/Google).
+- **Customer**: Lida com dados de consumidores B2C e B2B, perfis e pontos de entrega físicos (Unidades Consumidoras).
+- **Distributor (DSO)**: Representa as Distribuidoras de Energia Elétrica (ex: CEMIG) e suas concessões regionais.
+- **Supplier (IPP)**: Gerencia Produtores Independentes de Energia e unidades de geração renovável (Solar, Eólica, etc.).
+- **Consortium**: Governa as entidades jurídicas para compartilhamento de energia (Cooperativas/Consórcios) e cotas de membros.
+- **Metering**: Processa telemetria, leituras de medidores inteligentes e dados de geração/consumo de energia.
+- **Allocation (Rateio)**: Motor responsável pelo cálculo e distribuição de créditos de energia dos produtores aos consumidores.
+- **Billing**: Gerencia o ciclo de vida financeiro, incluindo faturamento, status de pagamento e liquidação.
 
-### Installation
+---
 
-```sh
-git clone --recursive <repo-url>
-cd my-monorepo
+## 🛠 Dependências
+
+Este workspace requer as seguintes ferramentas:
+
+- **Node.js**: v22+ (LTS mais recente recomendado)
+- **pnpm**: v10+ (Gerenciador de pacotes)
+- **NestJS**: Framework para as APIs
+- **ESLint 10**: Ferramenta de linting com Flat Config
+- **Vitest**: Framework de testes
+
+---
+
+## 🏁 Como Começar
+
+### 1. Clonar o Repositório
+Como este projeto utiliza Git Submodules, é necessário cloná-lo recursivamente:
+
+```bash
+git clone --recursive https://github.com/metha-energia/workspace.git
+cd workspace
+```
+
+Caso já tenha clonado sem os submódulos, execute:
+```bash
+git submodule update --init --recursive
+```
+
+### 2. Instalar Dependências
+Navegue até o projeto específico que deseja trabalhar e instale suas dependências:
+
+```bash
+cd apps/identity-api
 pnpm install
 ```
 
-### Environment Variables
-
-Environment variables are managed via a **root-level `.env` file**.
-Turborepo is configured with `globalDotEnv` to automatically inject these variables into the relevant workspaces and manage the build cache.
-
-```sh
-cp .env.example .env
-```
-
-> [!NOTE]
-> Variables that change frequently but don't affect the build output (e.g. `DEBUG_LEVEL`) should be moved to a local `.env` inside the specific app folder. Any change to the root `.env` will invalidate the cache for all tasks.
-
 ---
 
-## 🔄 Development Workflow
+## 📖 Como Executar
 
-### Running Locally
+Cada projeto dentro de `apps/` possui seu próprio conjunto de scripts. Abaixo estão os comandos mais comuns utilizados no workspace:
 
-To start all applications in development mode:
-
-```sh
-turbo dev
+### Desenvolvimento
+```bash
+pnpm dev
 ```
 
-To focus on a specific application:
-
-```sh
-turbo dev --filter=template-api
+### Build
+```bash
+pnpm build
 ```
 
-### Infrastructure & Resilience Testing
+### Testes
+```bash
+pnpm test          # Executar todos os testes
+pnpm test:watch    # Executar testes em modo observação
+pnpm test:cov      # Verificar cobertura de testes
+```
 
-This template is designed for high-fidelity local environments.
-
-1. **Local K8s** — deploy the entire stack to a local cluster (Kind/Minikube) via Pulumi:
-   ```sh
-   cd apps/template-k8s
-   pulumi up
-   ```
-2. **Pentesting** — use the local Kubernetes deployment to run security scans and resilience tests (chaos engineering) without affecting cloud resources.
-
----
-
-## ✅ Quality Gates
-
-### Git Hooks
-
-We use [Lefthook](https://github.com/evilmartians/lefthook) to manage Git hooks efficiently.
-
-- **Pre-commit**: Runs `turbo lint`, `typecheck`, and `format` only on staged files.
-- **Commit-msg**: Validates commit messages using `commitlint` (Conventional Commits).
-
-### Testing
-
-We use [Vitest](https://vitest.dev/) for high-performance testing:
-
-```sh
-# Run all tests
-turbo test
-
-# Watch mode for a specific app
-turbo test --filter=template-api -- --watch
+### Qualidade de Código
+```bash
+pnpm lint          # Executar ESLint com correção automática
+pnpm format        # Executar Prettier
 ```
 
 ---
 
-## 🚀 Build & Deployment
+## 🔗 Arquitetura do Projeto
 
-### Build Pipeline
-
-Turborepo handles the build graph. If you change a shared package, Turbo knows exactly which apps need to be rebuilt.
-
-```sh
-turbo build
-```
-
-### Remote Caching
-
-To share build artifacts across the team and CI/CD, configure Remote Caching:
-
-```sh
-turbo login
-turbo link
-```
-
----
-
-## 🔗 Useful Links
-
-- [Turborepo Documentation](https://turbo.build/repo/docs)
-- [Pulumi Kubernetes Guides](https://www.pulumi.com/registry/packages/kubernetes/)
-- [Conventional Commits](https://www.conventionalcommits.org/)
+- **Submodules**: Cada diretório em `apps/` e `libs/` é um repositório Git independente.
+- **Configurações Compartilhadas**: O pacote `libs/config` oferece uma forma centralizada de gerenciar as configurações de ESLint, TSConfig e Vitest em todos os serviços.
+- **Conventional Commits**: Utilizamos `commitlint` e `lefthook` para garantir mensagens de commit consistentes e qualidade de código antes do push.

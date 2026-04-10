@@ -3,10 +3,10 @@ import {defineConfig} from 'eslint/config';
 import baseConfig from './base';
 
 const config = defineConfig([
-  // Base configurations
+  // Configurações base
   ...baseConfig,
 
-  // Expo configurations
+  // Configurações do Expo
   expoConfig,
 ]);
 

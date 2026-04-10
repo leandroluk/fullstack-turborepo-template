@@ -1,7 +1,7 @@
 {
   "name": "@templates/web",
   "version": "0.0.1",
-  "description": "Template project using Next.js and already configured with monorepo configs",
+  "description": "Template de projeto usando Next.js e já configurado com configs de monorepo",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
