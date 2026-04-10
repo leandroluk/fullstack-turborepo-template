@@ -45,6 +45,7 @@ yarn-error.log*
 .mypy_cache
 .venv
 .reports
+.pyc
 
 # eslint
 .eslintcache
