@@ -38,6 +38,7 @@ yarn-error.log*
 *.pem
 
 # Python
+__pycache__
 .robot
 .ruff_cache
 .egg-info
