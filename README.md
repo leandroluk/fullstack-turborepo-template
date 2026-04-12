@@ -7,26 +7,26 @@ Welcome to the **{{company}}** central repository. This workspace is orchestrate
 ### Templates (`templates/`)
 Ready-to-use project foundations that consume shared configurations.
 
-| Template | Technology | Purpose |
-| :--- | :--- | :--- |
-| **`nestjs-11`** | [NestJS 11](https://nestjs.com/) | Robust backend API with module-based architecture. |
-| **`nextjs-16`** | [Next.js 16](https://nextjs.org/) | Modern web frontend with App Router and Tailwind CSS. |
-| **`expo-55`** | [Expo 55](https://expo.dev/) | Cross-platform mobile app with React Native. |
-| **`nextra-4`** | [Nextra 4](https://nextra.site/) | Documentation site with MDX support. |
-| **`pulumi-3`** | [Pulumi](https://www.pulumi.com/) | K8s Infrastructure-as-Code (Local, AWS, GCP, Baremetal). |
-| **`aws-lambda-powertools-2`** | [AWS Powertools](https://powertoolst.awsdev.io/) | Serverless functions with SAM CLI integration. |
-| **`serverless-framework-3`** | [Serverless Framework](https://www.serverless.com/) | FaaS deployments with Offline emulation. |
-| **`robot-framework-7`** | [Robot Framework](https://robotframework.org/) | End-to-end automated testing suite. |
+| Template                                                             | Technology                                          | Purpose                                                  |
+| :------------------------------------------------------------------- | :-------------------------------------------------- | :------------------------------------------------------- |
+| **[`nestjs-11`](./templates/nestjs-11)**                             | [NestJS 11](https://nestjs.com/)                    | Robust backend API with module-based architecture.       |
+| **[`nextjs-16`](./templates/nextjs-16)**                             | [Next.js 16](https://nextjs.org/)                   | Modern web frontend with App Router and Tailwind CSS.    |
+| **[`expo-55`](./templates/expo-55)**                                 | [Expo 55](https://expo.dev/)                        | Cross-platform mobile app with React Native.             |
+| **[`nextra-4`](./templates/nextra-4)**                               | [Nextra 4](https://nextra.site/)                    | Documentation site with MDX support.                     |
+| **[`pulumi-3`](./templates/pulumi-3)**                               | [Pulumi](https://www.pulumi.com/)                   | K8s Infrastructure-as-Code (Local, AWS, GCP, Baremetal). |
+| **[`aws-lambda-powertools-2`](./templates/aws-lambda-powertools-2)** | [AWS Powertools](https://powertoolst.awsdev.io/)    | Serverless functions with SAM CLI integration.           |
+| **[`serverless-framework-3`](./templates/serverless-framework-3)**   | [Serverless Framework](https://www.serverless.com/) | FaaS deployments with Offline emulation.                 |
+| **[`robot-framework-7`](./templates/robot-framework-7)**             | [Robot Framework](https://robotframework.org/)      | End-to-end automated testing suite.                      |
 
 ### Packages (`packages/`)
 Shared logic and configurations used by all workspaces.
 
-| Package | Description |
-| :--- | :--- |
-| **`config-eslint`** | Unified Flat Config for ESLint (Next.js, NestJS, Expo, etc.). |
-| **`config-typescript`** | Standardized `tsconfig.json` bases. |
-| **`config-vitest`** | Shared Vitest presets for unit and integration testing. |
-| **`shared-domain`** | Domain logic, Zod schemas, and interfaces shared across the repo. |
+| Package                                                 | Description                                                       |
+| :------------------------------------------------------ | :---------------------------------------------------------------- |
+| **[`config-eslint`](./packages/config-eslint)**         | Unified Flat Config for ESLint (Next.js, NestJS, Expo, etc.).     |
+| **[`config-typescript`](./packages/config-typescript)** | Standardized `tsconfig.json` bases.                               |
+| **[`config-vitest`](./packages/config-vitest)**         | Shared Vitest presets for unit and integration testing.           |
+| **[`shared-domain`](./packages/shared-domain)**         | Domain logic, Zod schemas, and interfaces shared across the repo. |
 
 ---
 
