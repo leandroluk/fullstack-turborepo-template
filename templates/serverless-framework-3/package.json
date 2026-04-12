@@ -19,7 +19,7 @@
     "@packages/config-vitest": "workspace:*",
     "@types/aws-lambda": "^8.10.145",
     "@types/node": "^20.0.0",
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.27.0",
     "eslint": "^10.2.0",
     "serverless": "^3.39.0",
     "serverless-esbuild": "^1.52.1",

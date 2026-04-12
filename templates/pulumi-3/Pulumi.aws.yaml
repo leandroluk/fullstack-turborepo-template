@@ -1,0 +1,37 @@
+# Pulumi.aws.yaml
+config:
+  # ── Provider ───────────────────────────────────────────────────────────────
+  k8s:provider: aws
+
+  # ── Domain ────────────────────────────────────────────────────────────────
+  k8s:baseDomain: "yourdomain.com"
+
+  # ── AWS ───────────────────────────────────────────────────────────────────
+  aws:region: "us-east-1"
+  k8s:awsRegion: "us-east-1"
+  k8s:awsS3Bucket: "your-app-bucket"
+  k8s:vpcNetworkCidr: "10.0.0.0/16"
+  k8s:eksNodeInstanceType: "t3.medium"
+  k8s:desiredClusterSize: "2"
+  k8s:minClusterSize: "1"
+  k8s:maxClusterSize: "10"
+
+  # ── Images (ECR) ──────────────────────────────────────────────────────────
+  k8s:apiImage: "<account>.dkr.ecr.us-east-1.amazonaws.com/api:latest"
+  k8s:webImage: "<account>.dkr.ecr.us-east-1.amazonaws.com/web:latest"
+  k8s:docImage: "<account>.dkr.ecr.us-east-1.amazonaws.com/doc:latest"
+
+  # ── Replicas ──────────────────────────────────────────────────────────────
+  k8s:apiReplicas: "2"
+  k8s:webReplicas: "2"
+  k8s:docReplicas: "1"
+
+  # ── PostgreSQL ────────────────────────────────────────────────────────────
+  k8s:postgresUser: "postgres"
+  k8s:postgresDb: "app"
+  k8s:postgresPassword:
+    secure: "<run: pulumi config set --secret k8s:postgresPassword yourpassword --stack aws>"
+
+  # ── Redis ─────────────────────────────────────────────────────────────────
+  k8s:redisPassword:
+    secure: "<run: pulumi config set --secret k8s:redisPassword yourpassword --stack aws>"

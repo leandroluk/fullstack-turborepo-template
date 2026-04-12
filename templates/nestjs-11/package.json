@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "docker:build": "docker build -f Dockerfile -t nestjs-11:latest ../...",
     "start": "nest start",
     "dev": "nest start --watch",
     "debug": "nest start --debug --watch",

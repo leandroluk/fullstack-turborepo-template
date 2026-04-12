@@ -7,20 +7,28 @@
   "license": "UNLICENSED",
   "main": "src/index.ts",
   "scripts": {
-    "debug": "cross-env NODE_OPTIONS='--inspect-brk' pulumi up --stack dev -c isLocal=true --yes",
-    "lint": "eslint . --fix",
+    "lint": "eslint src --fix",
     "typecheck": "tsc --noEmit",
-    "preview": "pulumi preview",
-    "deploy": "pulumi up --yes"
+    "cluster:setup": "dotenvx run -- node scripts/setup-cluster.js",
+    "cluster:teardown": "dotenvx run -- node scripts/teardown-cluster.js",
+    "docker:push": "dotenvx run -- node scripts/docker-push.js",
+    "deploy": "dotenvx run -- node scripts/deploy.js",
+    "pipeline": "dotenvx run -- node scripts/docker-push.js && dotenvx run -- node scripts/deploy.js",
+    "preview:local": "pulumi preview --stack local",
+    "up:local": "pulumi up --yes --stack local",
+    "destroy:local": "pulumi destroy --yes --stack local",
+    "local": "pnpm cluster:setup && pnpm docker:push && pnpm deploy"
   },
   "dependencies": {
     "@pulumi/aws": "7.24.0",
     "@pulumi/awsx": "^3.0.0",
     "@pulumi/eks": "^3.0.0",
+    "@pulumi/gcp": "9.19.0",
     "@pulumi/kubernetes": "4.28.0",
     "@pulumi/pulumi": "^3.113.0"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.44.0",
     "@packages/config-eslint": "workspace:*",
     "@packages/config-typescript": "workspace:*",
     "@packages/config-vitest": "workspace:*",

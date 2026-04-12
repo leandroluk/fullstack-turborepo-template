@@ -1,0 +1,45 @@
+# Pulumi.gcp.yaml
+config:
+  # ── Provider ───────────────────────────────────────────────────────────────
+  k8s:provider: gcp
+
+  # ── Domain ────────────────────────────────────────────────────────────────
+  k8s:baseDomain: "yourdomain.com"
+
+  # ── GCP ───────────────────────────────────────────────────────────────────
+  gcp:project: "your-gcp-project-id"
+  k8s:gcpProject: "your-gcp-project-id"
+  k8s:gcpRegion: "us-central1"
+  k8s:gcpZone: "us-central1-a"
+  k8s:gcpGcsBucket: "your-app-bucket"
+  k8s:gkeMachineType: "e2-standard-2"
+  k8s:gkeInitialNodeCount: "2"
+  k8s:gkeMinNodeCount: "1"
+  k8s:gkeMaxNodeCount: "10"
+
+  # GCS HMAC keys for S3-compatible access
+  # Create at: https://console.cloud.google.com/storage/settings;tab=interoperability
+  k8s:gcpHmacAccessKey:
+    secure: "<run: pulumi config set --secret k8s:gcpHmacAccessKey yourkey --stack gcp>"
+  k8s:gcpHmacSecretKey:
+    secure: "<run: pulumi config set --secret k8s:gcpHmacSecretKey yoursecret --stack gcp>"
+
+  # ── Images (Artifact Registry) ────────────────────────────────────────────
+  k8s:apiImage: "us-central1-docker.pkg.dev/your-project/app/api:latest"
+  k8s:webImage: "us-central1-docker.pkg.dev/your-project/app/web:latest"
+  k8s:docImage: "us-central1-docker.pkg.dev/your-project/app/doc:latest"
+
+  # ── Replicas ──────────────────────────────────────────────────────────────
+  k8s:apiReplicas: "2"
+  k8s:webReplicas: "2"
+  k8s:docReplicas: "1"
+
+  # ── PostgreSQL ────────────────────────────────────────────────────────────
+  k8s:postgresUser: "postgres"
+  k8s:postgresDb: "app"
+  k8s:postgresPassword:
+    secure: "<run: pulumi config set --secret k8s:postgresPassword yourpassword --stack gcp>"
+
+  # ── Redis ─────────────────────────────────────────────────────────────────
+  k8s:redisPassword:
+    secure: "<run: pulumi config set --secret k8s:redisPassword yourpassword --stack gcp>"

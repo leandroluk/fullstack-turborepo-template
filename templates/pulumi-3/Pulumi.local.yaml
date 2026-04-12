@@ -1,0 +1,34 @@
+# Pulumi.local.yaml
+config:
+  # ── Provider ───────────────────────────────────────────────────────────────
+  k8s:provider: local
+
+  # ── Domain ────────────────────────────────────────────────────────────────
+  k8s:baseDomain: "127.0.0.1.nip.io"
+
+  # ── Images (k3d local registry) ───────────────────────────────────────────
+  k8s:apiImage: "localhost:5000/api:latest"
+  k8s:webImage: "localhost:5000/web:latest"
+  k8s:docImage: "localhost:5000/doc:latest"
+
+  # ── Replicas ──────────────────────────────────────────────────────────────
+  k8s:apiReplicas: "1"
+  k8s:webReplicas: "1"
+  k8s:docReplicas: "1"
+
+  # ── PostgreSQL ────────────────────────────────────────────────────────────
+  k8s:postgresUser: "postgres"
+  k8s:postgresDb: "app"
+  # pulumi config set --secret k8s:postgresPassword yourpassword --stack local
+  k8s:postgresPassword:
+    secure: "<run: pulumi config set --secret k8s:postgresPassword yourpassword>"
+
+  # ── Redis ─────────────────────────────────────────────────────────────────
+  k8s:redisPassword:
+    secure: "<run: pulumi config set --secret k8s:redisPassword yourpassword>"
+
+  # ── MinIO ─────────────────────────────────────────────────────────────────
+  k8s:minioRootUser: "minioadmin"
+  k8s:minioBucket: "app"
+  k8s:minioRootPassword:
+    secure: "<run: pulumi config set --secret k8s:minioRootPassword yourpassword>"

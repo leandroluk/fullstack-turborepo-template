@@ -8,7 +8,12 @@
     "experimentalDecorators": true,
     "pretty": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "paths": {
+      "#/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",

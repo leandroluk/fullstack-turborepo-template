@@ -1,6 +1,43 @@
 config:
-  aws:region: us-east-1
+  # ── Mode ──────────────────────────────────────────────────────────────────
+  # true  → local cluster (minikube / k3s / kind) — no AWS resources
+  # false → AWS EKS (requires valid AWS credentials)
   k8s:isLocal: "true"
+
+  # ── Base domain ───────────────────────────────────────────────────────────
+  # nip.io resolves *.127.0.0.1.nip.io → 127.0.0.1 with no DNS config needed.
+  # Change to your real domain for production stacks.
+  k8s:baseDomain: "127.0.0.1.nip.io"
+
+  # ── Application images ────────────────────────────────────────────────────
+  # Build locally before `pulumi up`:
+  #   docker build -t api:latest apps/<your-api-path>
+  #   docker build -t web:latest apps/<your-web-path>
+  #   docker build -t doc:latest apps/<your-doc-path>
+  k8s:apiImage: "api:latest"
+  k8s:webImage: "web:latest"
+  k8s:docImage: "doc:latest"
+
+  # ── Replica counts ────────────────────────────────────────────────────────
+  k8s:apiReplicas: "1"
+  k8s:webReplicas: "1"
+  k8s:docReplicas: "1"
+
+  # ── PostgreSQL ────────────────────────────────────────────────────────────
+  k8s:postgresUser: "postgres"
+  k8s:postgresDb: "app"
+  # Set the password with: pulumi config set --secret k8s:postgresPassword <value>
+  k8s:postgresPassword:
+    secure: "<run: pulumi config set --secret k8s:postgresPassword yourpassword>"
+
+  # ── Redis ─────────────────────────────────────────────────────────────────
+  # Leave empty to disable auth, or set with:
+  #   pulumi config set --secret k8s:redisPassword <value>
+  k8s:redisPassword:
+    secure: "<run: pulumi config set --secret k8s:redisPassword yourpassword>"
+
+  # ── AWS EKS (only used when isLocal=false) ────────────────────────────────
+  aws:region: us-east-1
   k8s:desiredClusterSize: "2"
   k8s:eksNodeInstanceType: t3.medium
   k8s:maxClusterSize: "10"
