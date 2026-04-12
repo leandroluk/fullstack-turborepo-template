@@ -4,24 +4,29 @@ Welcome to the **{{company}}** central repository. This workspace is orchestrate
 
 ## 🏗️ Architecture & Tech Stack
 
-### Applications (`apps/`)
+### Templates (`templates/`)
+Ready-to-use project foundations that consume shared configurations.
 
-| App                | Description                                                                                   |
-| ------------------ | --------------------------------------------------------------------------------------------- |
-| **`template-api`** | Backend service built with [NestJS](https://nestjs.com/)                                      |
-| **`template-web`** | Main web frontend using [Next.js](https://nextjs.org/) (App Router)                           |
-| **`template-app`** | Mobile application powered by [React Native](https://reactnative.dev/)                        |
-| **`template-doc`** | Documentation site built with [Nextra](https://nextra.site/)                                  |
-| **`template-k8s`** | Infrastructure-as-Code (IaC) using [Pulumi](https://www.pulumi.com/) and Kubernetes manifests |
+| Template | Technology | Purpose |
+| :--- | :--- | :--- |
+| **`nestjs-11`** | [NestJS 11](https://nestjs.com/) | Robust backend API with module-based architecture. |
+| **`nextjs-16`** | [Next.js 16](https://nextjs.org/) | Modern web frontend with App Router and Tailwind CSS. |
+| **`expo-55`** | [Expo 55](https://expo.dev/) | Cross-platform mobile app with React Native. |
+| **`nextra-4`** | [Nextra 4](https://nextra.site/) | Documentation site with MDX support. |
+| **`pulumi-3`** | [Pulumi](https://www.pulumi.com/) | K8s Infrastructure-as-Code (Local, AWS, GCP, Baremetal). |
+| **`aws-lambda-powertools-2`** | [AWS Powertools](https://powertoolst.awsdev.io/) | Serverless functions with SAM CLI integration. |
+| **`serverless-framework-3`** | [Serverless Framework](https://www.serverless.com/) | FaaS deployments with Offline emulation. |
+| **`robot-framework-7`** | [Robot Framework](https://robotframework.org/) | End-to-end automated testing suite. |
 
 ### Packages (`packages/`)
+Shared logic and configurations used by all workspaces.
 
-| Package                 | Description                                                            |
-| ----------------------- | ---------------------------------------------------------------------- |
-| **`config-eslint`**     | Shared ESLint configurations (Next.js, NestJS, Prettier)               |
-| **`config-typescript`** | Base `tsconfig.json` files used across the workspace                   |
-| **`config-vitest`**     | Global Vitest configurations for unit and integration testing          |
-| **`shared-types`**      | Zod schemas and TypeScript interfaces shared between API and frontends |
+| Package | Description |
+| :--- | :--- |
+| **`config-eslint`** | Unified Flat Config for ESLint (Next.js, NestJS, Expo, etc.). |
+| **`config-typescript`** | Standardized `tsconfig.json` bases. |
+| **`config-vitest`** | Shared Vitest presets for unit and integration testing. |
+| **`shared-domain`** | Domain logic, Zod schemas, and interfaces shared across the repo. |
 
 ---
 
@@ -62,23 +67,23 @@ cp .env.example .env
 To start all applications in development mode:
 
 ```sh
-turbo dev
+pnpm turbo dev
 ```
 
-To focus on a specific application:
+To focus on a specific template:
 
 ```sh
-turbo dev --filter=template-api
+pnpm turbo dev --filter=@templates/nestjs-11
 ```
 
 ### Infrastructure & Resilience Testing
 
 This template is designed for high-fidelity local environments.
 
-1. **Local K8s** — deploy the entire stack to a local cluster (Kind/Minikube) via Pulumi:
+1. **Local K8s** — deploy the entire stack to a local cluster (k3d) via Pulumi:
    ```sh
-   cd apps/template-k8s
-   pulumi up
+   cd templates/pulumi-3
+   pnpm local
    ```
 2. **Pentesting** — use the local Kubernetes deployment to run security scans and resilience tests (chaos engineering) without affecting cloud resources.
 
@@ -99,10 +104,10 @@ We use [Vitest](https://vitest.dev/) for high-performance testing:
 
 ```sh
 # Run all tests
-turbo test
+pnpm turbo test
 
-# Watch mode for a specific app
-turbo test --filter=template-api -- --watch
+# Watch mode for a specific package
+pnpm turbo test --filter=@templates/nestjs-11 -- --watch
 ```
 
 ---
