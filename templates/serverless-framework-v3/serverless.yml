@@ -11,10 +11,17 @@ plugins:
   - serverless-offline
 
 custom:
+  # esbuild configuration
   esbuild:
     bundle: true
     minify: false
     sourcemap: true
+    
+  # serverless-offline configuration
+  serverless-offline:
+    noAuth: true
+    noTimeout: true
+    noSponsor: true    
 
 functions:
   hello:

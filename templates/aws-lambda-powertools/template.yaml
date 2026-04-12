@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Lambda Powertools Template
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Architectures:
+      - x86_64
+    Timeout: 30
+    Environment:
+      Variables:
+        POWERTOOLS_SERVICE_NAME: template-powertools
+        LOG_LEVEL: INFO
+
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      # O Turborepo roda o "build" gerando os arquivos de dist/, portanto o SAM aponta para lá.
+      CodeUri: dist/
+      Handler: index.handler
+      Events:
+        HelloApi:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: GET

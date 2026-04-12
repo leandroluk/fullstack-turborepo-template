@@ -26,6 +26,9 @@ coverage
 out/
 build
 dist
+.esbuild
+.serverless
+*.zip
 
 
 # Debug
