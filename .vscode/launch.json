@@ -1,8 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
-    // template:api
-    {
+    { // template:api
       "name": "template:api",
       "type": "node",
       "request": "launch",
@@ -22,8 +21,7 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    // template:app
-    {
+    { // template:app
       "name": "template:app",
       "type": "node",
       "request": "launch",
@@ -41,8 +39,27 @@
         "<node_internals>/**"
       ]
     },
-    // template:doc
-    {
+    { // template:aws-lambda-powertools
+      "name": "template:aws-lambda-powertools",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev:debug"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesAwsLambdaPowertools}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
+    },
+    { // template:doc
       "name": "template:doc",
       "type": "node",
       "request": "launch",
@@ -60,8 +77,7 @@
         "<node_internals>/**"
       ]
     },
-    // template:e2e
-    {
+    { // template:e2e
       "name": "template:e2e",
       "type": "node",
       "request": "launch",
@@ -73,8 +89,7 @@
       "cwd": "${workspaceFolder}/templates/${input:templatesE2e}",
       "console": "integratedTerminal"
     },
-    // template:k8s
-    {
+    { // template:k8s
       "name": "template:k8s",
       "type": "node",
       "request": "launch",
@@ -91,8 +106,27 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    // template:web
-    {
+    { // template:serverless-v3
+      "name": "template:serverless-v3",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev:debug"
+      ],
+      "cwd": "${workspaceFolder}/templates/${input:templatesServerlessV3}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
+    },
+    { // template:web
       "name": "template:web",
       "type": "node",
       "request": "launch",
@@ -112,8 +146,7 @@
     },
   ],
   "inputs": [
-    // template:api
-    {
+    { // template:api
       "id": "templatesApi",
       "type": "pickString",
       "description": "Selecione a API",
@@ -121,8 +154,7 @@
         "api"
       ]
     },
-    // template:app
-    {
+    { // template:app
       "id": "templatesApp",
       "type": "pickString",
       "description": "Selecione o App",
@@ -130,8 +162,15 @@
         "app"
       ]
     },
-    // template:doc
-    {
+    { // template:aws-lambda-powertools
+      "id": "templatesAwsLambdaPowertools",
+      "type": "pickString",
+      "description": "Selecione a AWS Lambda Powertools",
+      "options": [
+        "aws-lambda-powertools"
+      ]
+    },
+    { // template:doc
       "id": "templatesDoc",
       "type": "pickString",
       "description": "Selecione a Documentação",
@@ -139,8 +178,7 @@
         "doc"
       ]
     },
-    // template:e2e
-    {
+    { // template:e2e
       "id": "templatesE2e",
       "type": "pickString",
       "description": "Selecione o Suite E2E",
@@ -148,8 +186,7 @@
         "e2e"
       ]
     },
-    // template:k8s
-    {
+    { // template:k8s
       "id": "templatesK8s",
       "type": "pickString",
       "description": "Selecione o K8s",
@@ -157,14 +194,21 @@
         "k8s"
       ]
     },
-    // template:web
-    {
+    { // template:serverless-v3
+      "id": "templatesServerlessV3",
+      "type": "pickString",
+      "description": "Selecione o Serverless V3",
+      "options": [
+        "serverless-framework-v3"
+      ]
+    },
+    { // template:web
       "id": "templatesWeb",
       "type": "pickString",
       "description": "Selecione o Frontend",
       "options": [
         "web"
       ]
-    },
+    }
   ]
 }

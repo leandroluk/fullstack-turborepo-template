@@ -1,0 +1,35 @@
+{
+  "name": "@templates/aws-lambda-powertools",
+  "version": "0.0.1",
+  "description": "Template de projeto usando AWS Lambda Powertools e configs de monorepo",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outdir=dist",
+    "dev": "tsx src/dev.ts",
+    "dev:debug": "node --inspect -r tsx src/dev.ts",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.1.0",
+    "@aws-lambda-powertools/metrics": "^2.1.0",
+    "@aws-lambda-powertools/tracer": "^2.1.0"
+  },
+  "devDependencies": {
+    "@packages/config-eslint": "workspace:*",
+    "@packages/config-typescript": "workspace:*",
+    "@packages/config-vitest": "workspace:*",
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^20.0.0",
+    "eslint": "^10.2.0",
+    "prettier": "^3.4.2",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "4.1.4"
+  }
+}

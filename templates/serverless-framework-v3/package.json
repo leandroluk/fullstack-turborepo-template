@@ -1,0 +1,33 @@
+{
+  "name": "@templates/serverless-v3",
+  "version": "0.0.1",
+  "description": "Template de projeto usando Serverless Framework v3 e configs de monorepo",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "serverless package",
+    "dev": "serverless offline",
+    "dev:debug": "node --inspect=0.0.0.0:9229 ./node_modules/serverless/bin/serverless.js offline",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@packages/config-eslint": "workspace:*",
+    "@packages/config-typescript": "workspace:*",
+    "@packages/config-vitest": "workspace:*",
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^20.0.0",
+    "eslint": "^10.2.0",
+    "prettier": "^3.4.2",
+    "serverless": "^3.39.0",
+    "serverless-esbuild": "^1.52.1",
+    "serverless-offline": "^13.9.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.3",
+    "vitest": "4.1.4"
+  }
+}
