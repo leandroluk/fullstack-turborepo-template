@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# @templates/web
 
-## Getting Started
+This is a boilerplate template for **Next.js 16 (React)** frontend architectures, created to integrate effortlessly within the Turborepo monorepo context.
 
-First, run the development server:
+## Monorepo Context
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Designed specifically as a node in the Turborepo ecosystem, this template avoids local redundant configs. It points natively toward:
+- **`@packages/config-eslint`**: Using the Next.js curated flat-configs.
+- **`@packages/config-typescript`**: Providing maximum strictness constraints on top of the generic base structure.
+- **`@packages/config-vitest`**: Using the React ecosystem presets for DOM validation.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The `turbo.json` implicitly covers its build procedures to aggressively cache `.next` outputs and eliminate unnecessary rebuilds across Vercel and CI environments.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `pnpm run dev`: Starts the local Next.js development server.
+- `pnpm run build`: Compiles the React application for production.
+- `pnpm run start`: Serves the generated `.next` production build.
+- `pnpm run lint`: Analyzes the code via ESLint.
+- `pnpm run test`: Executes unit and integration tests under Vitest.
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To create a new web portal:
+1. Copy this directory into the `apps/` folder.
+2. Rename the directory and update the `name` property inside its `package.json`.
+3. Tweak the global layout and generic `tailwind/css` bindings.
+4. Run `pnpm install` at the monorepo root to link the workspaces.

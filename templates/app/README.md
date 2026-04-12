@@ -1,56 +1,25 @@
-# Welcome to your Expo app 👋
+# @templates/app
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a boilerplate template for **React Native with Expo (v55+)** designed to be used within the Turborepo monorepo architecture.
 
-## Get started
+## Monorepo Context
 
-1. Install dependencies
+As a Turborepo template, this project is pre-configured to utilize the shared conventions and tooling defined in `packages/*`. It relies symmetrically on the workspace to ensure standardization across all frontend native apps:
+- **`@packages/config-eslint`**: Enforces best practices using the central Expo/React custom rules.
+- **`@packages/config-typescript`**: Enforces strict TypeScript adherence for React Native.
 
-   ```bash
-   npm install
-   ```
+Rather than maintaining duplicate configuration files, this template references the root monorepo implementations natively.
 
-2. Start the app
+## Available Scripts
 
-   ```bash
-   npx expo start
-   ```
+- `pnpm run dev`: Starts the local Expo development server.
+- `pnpm run build`: Initiates EAS or local builds.
+- `pnpm run lint`: Analyzes the code via ESLint.
 
-In the output, you'll find options to open the app in a
+## Usage
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+To create a new mobile application based on this footprint:
+1. Copy this directory into the `apps/` folder.
+2. Rename the directory and update the `name` property inside its `package.json` and `app.json`.
+3. Set up Expo services if necessary.
+4. Run `pnpm install` at the monorepo root to link the workspaces.

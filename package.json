@@ -6,7 +6,6 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "typecheck": "turbo run typecheck",
     "clear": "pnpm dlx rimraf --glob \"**/{.turbo,.next,.coverage,dist,node_modules,pnpm-lock.yaml,.robot,.ruff_cache,.egg-info,.pytest_cache,.mypy_cache,.venv,.reports}\""
   },
@@ -15,8 +14,7 @@
     "@commitlint/config-conventional": "20.5.0",
     "@commitlint/types": "20.5.0",
     "lefthook": "2.1.5",
-    "prettier": "^3.7.4",
-    "turbo": "^2.9.5",
+    "turbo": "^2.9.6",
     "typescript": "5.9.2"
   },
   "packageManager": "pnpm@9.0.0",
