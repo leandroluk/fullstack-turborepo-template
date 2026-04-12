@@ -1,5 +1,5 @@
 {
-  "name": "@templates/web",
+  "name": "@templates/nextjs-16",
   "version": "0.0.1",
   "description": "Template de projeto usando Next.js e já configurado com configs de monorepo",
   "private": true,

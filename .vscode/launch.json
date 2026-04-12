@@ -1,8 +1,8 @@
 {
   "version": "0.2.0",
   "configurations": [
-    { // template:api
-      "name": "template:api",
+    { // template:nestjs-11
+      "name": "template:nestjs-11",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -10,7 +10,7 @@
         "run",
         "start:debug"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesApi}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesNestjs11}",
       "console": "integratedTerminal",
       "env": {
         "NODE_OPTIONS": "--no-deprecation"
@@ -21,8 +21,8 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    { // template:app
-      "name": "template:app",
+    { // template:expo-55
+      "name": "template:expo-55",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -30,7 +30,7 @@
         "run",
         "dev"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesApp}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesExpo55}",
       "console": "integratedTerminal",
       "env": {
         "NODE_OPTIONS": "--no-deprecation"
@@ -39,8 +39,8 @@
         "<node_internals>/**"
       ]
     },
-    { // template:aws-lambda-powertools
-      "name": "template:aws-lambda-powertools",
+    { // template:aws-lambda-powertools-2
+      "name": "template:aws-lambda-powertools-2",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -48,7 +48,7 @@
         "run",
         "dev:debug"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesAwsLambdaPowertools}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesAwsLambdaPowertools2}",
       "console": "integratedTerminal",
       "env": {
         "NODE_OPTIONS": "--no-deprecation"
@@ -59,8 +59,8 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    { // template:doc
-      "name": "template:doc",
+    { // template:nextra-4
+      "name": "template:nextra-4",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -68,7 +68,7 @@
         "run",
         "dev"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesDoc}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesNextra4}",
       "console": "integratedTerminal",
       "env": {
         "NODE_OPTIONS": "--no-deprecation"
@@ -77,8 +77,8 @@
         "<node_internals>/**"
       ]
     },
-    { // template:e2e
-      "name": "template:e2e",
+    { // template:robot-framework-7
+      "name": "template:robot-framework-7",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -86,11 +86,11 @@
         "run",
         "test:e2e"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesE2e}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesRobotFramework7}",
       "console": "integratedTerminal"
     },
-    { // template:k8s
-      "name": "template:k8s",
+    { // template:pulumi-3
+      "name": "template:pulumi-3",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -98,7 +98,7 @@
         "run",
         "debug"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesK8s}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesPulumi3}",
       "console": "integratedTerminal",
       "skipFiles": [
         "<node_internals>/**"
@@ -106,8 +106,8 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    { // template:serverless-v3
-      "name": "template:serverless-v3",
+    { // template:serverless-framework-3
+      "name": "template:serverless-framework-3",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -115,7 +115,7 @@
         "run",
         "dev:debug"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesServerlessV3}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesServerlessFramework3}",
       "console": "integratedTerminal",
       "env": {
         "NODE_OPTIONS": "--no-deprecation"
@@ -126,8 +126,8 @@
       "autoAttachChildProcesses": true,
       "sourceMaps": true
     },
-    { // template:web
-      "name": "template:web",
+    { // template:nextjs-16
+      "name": "template:nextjs-16",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -135,7 +135,7 @@
         "run",
         "dev"
       ],
-      "cwd": "${workspaceFolder}/templates/${input:templatesWeb}",
+      "cwd": "${workspaceFolder}/templates/${input:templatesNextjs16}",
       "console": "integratedTerminal",
       "env": {
         "NODE_OPTIONS": "--no-deprecation"
@@ -143,71 +143,71 @@
       "skipFiles": [
         "<node_internals>/**"
       ]
-    },
+    }
   ],
   "inputs": [
-    { // template:api
-      "id": "templatesApi",
+    { // template:nestjs-11
+      "id": "templatesNestjs11",
       "type": "pickString",
-      "description": "Selecione a API",
+      "description": "Selecione a API (NestJS 11)",
       "options": [
-        "api"
+        "nestjs-11"
       ]
     },
-    { // template:app
-      "id": "templatesApp",
+    { // template:expo-55
+      "id": "templatesExpo55",
       "type": "pickString",
-      "description": "Selecione o App",
+      "description": "Selecione o App (Expo 55)",
       "options": [
-        "app"
+        "expo-55"
       ]
     },
-    { // template:aws-lambda-powertools
-      "id": "templatesAwsLambdaPowertools",
+    { // template:aws-lambda-powertools-2
+      "id": "templatesAwsLambdaPowertools2",
       "type": "pickString",
-      "description": "Selecione a AWS Lambda Powertools",
+      "description": "Selecione a AWS Lambda Powertools 2",
       "options": [
-        "aws-lambda-powertools"
+        "aws-lambda-powertools-2"
       ]
     },
-    { // template:doc
-      "id": "templatesDoc",
+    { // template:nextra-4
+      "id": "templatesNextra4",
       "type": "pickString",
-      "description": "Selecione a Documentação",
+      "description": "Selecione a Documentação (Nextra 4)",
       "options": [
-        "doc"
+        "nextra-4"
       ]
     },
-    { // template:e2e
-      "id": "templatesE2e",
+    { // template:robot-framework-7
+      "id": "templatesRobotFramework7",
       "type": "pickString",
-      "description": "Selecione o Suite E2E",
+      "description": "Selecione a Suite E2E (Robot Framework 7)",
       "options": [
-        "e2e"
+        "robot-framework-7"
       ]
     },
-    { // template:k8s
-      "id": "templatesK8s",
+    { // template:pulumi-3
+      "id": "templatesPulumi3",
       "type": "pickString",
-      "description": "Selecione o K8s",
+      "description": "Selecione a Infra K8s (Pulumi 3)",
       "options": [
-        "k8s"
+        "pulumi-3"
       ]
     },
-    { // template:serverless-v3
-      "id": "templatesServerlessV3",
+    { // template:serverless-framework-3
+      "id": "templatesServerlessFramework3",
       "type": "pickString",
       "description": "Selecione o Serverless V3",
       "options": [
-        "serverless-framework-v3"
+        "serverless-framework-3"
       ]
     },
-    { // template:web
-      "id": "templatesWeb",
+    { // template:nextjs-16
+      "id": "templatesNextjs16",
       "type": "pickString",
-      "description": "Selecione o Frontend",
+      "description": "Selecione o Frontend (Next.js 16)",
       "options": [
-        "web"
+        "nextjs-16"
       ]
     }
   ]

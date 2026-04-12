@@ -1,4 +1,4 @@
-# @templates/app
+# @templates/expo-55
 
 This is a boilerplate template for **React Native with Expo (v55+)** designed to be used within the Turborepo monorepo architecture.
 

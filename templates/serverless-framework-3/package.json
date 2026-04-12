@@ -1,22 +1,17 @@
 {
-  "name": "@templates/aws-lambda-powertools",
+  "name": "@templates/serverless-framework-3",
   "version": "0.0.1",
-  "description": "Template de projeto usando AWS Lambda Powertools e configs de monorepo",
+  "description": "Template de projeto usando Serverless Framework v3 e configs de monorepo",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outdir=dist",
-    "dev": "sam local start-api --invoke-image amazon/aws-lambda-nodejs:20",
-    "dev:debug": "sam local start-api -d 9229 --invoke-image amazon/aws-lambda-nodejs:20",
+    "build": "serverless package",
+    "dev": "serverless offline",
+    "dev:debug": "node --inspect=0.0.0.0:9229 ./node_modules/serverless/bin/serverless.js offline",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage"
-  },
-  "dependencies": {
-    "@aws-lambda-powertools/logger": "^2.1.0",
-    "@aws-lambda-powertools/metrics": "^2.1.0",
-    "@aws-lambda-powertools/tracer": "^2.1.0"
   },
   "devDependencies": {
     "@packages/config-eslint": "workspace:*",
@@ -26,6 +21,9 @@
     "@types/node": "^20.0.0",
     "esbuild": "^0.24.0",
     "eslint": "^10.2.0",
+    "serverless": "^3.39.0",
+    "serverless-esbuild": "^1.52.1",
+    "serverless-offline": "^13.9.0",
     "typescript": "^5.7.3",
     "vitest": "4.1.4"
   }

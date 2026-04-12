@@ -1,4 +1,4 @@
-# @templates/aws-lambda-powertools
+# @templates/aws-lambda-powertools-2
 
 This is a boilerplate template for **AWS Lambda Functions using AWS Lambda Powertools for TypeScript**, intended to be used within the Turborepo monorepo architecture. It comes pre-configured with the core Logger, Metrics, and Tracer utilities.
 

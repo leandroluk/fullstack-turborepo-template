@@ -1,4 +1,4 @@
-# @templates/api
+# @templates/nestjs-11
 
 This is a boilerplate template for **NestJS (v11+)** designed to be used within the Turborepo monorepo architecture. 
 

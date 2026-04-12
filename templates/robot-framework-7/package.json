@@ -1,5 +1,5 @@
 {
-  "name": "@templates/e2e",
+  "name": "@templates/robot-framework-7",
   "version": "0.0.1",
   "description": "Template de projeto de testes end-to-end usando Robot Framework e já configurado com configs de monorepo",
   "private": true,

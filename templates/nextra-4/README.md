@@ -1,4 +1,4 @@
-# @templates/doc
+# @templates/nextra-4
 
 This is a boilerplate template for creating documentation sites using **Next.js 16 + Nextra 4.6+**, designed specifically within the Turborepo monorepo ecosystem.
 

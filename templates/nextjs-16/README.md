@@ -1,4 +1,4 @@
-# @templates/web
+# @templates/nextjs-16
 
 This is a boilerplate template for **Next.js 16 (React)** frontend architectures, created to integrate effortlessly within the Turborepo monorepo context.
 

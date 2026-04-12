@@ -1,4 +1,4 @@
-# @templates/k8s
+# @templates/pulumi-3
 
 This is a boilerplate template for Infrastructure as Code utilizing **Pulumi** to manage **Kubernetes** architectures within the Turborepo monorepo.
 

@@ -1,4 +1,4 @@
-# @templates/e2e
+# @templates/robot-framework-7
 
 This is a boilerplate template for **Robot Framework** automated testing environments, built within the Turborepo monorepo architecture. 
 

@@ -1,5 +1,5 @@
 {
-  "name": "@templates/api",
+  "name": "@templates/nestjs-11",
   "version": "0.0.1",
   "description": "Template de projeto usando NestJS e já configurado com configs de monorepo",
   "private": true,

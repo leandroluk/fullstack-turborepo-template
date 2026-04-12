@@ -1,4 +1,4 @@
-# @templates/serverless-v3
+# @templates/serverless-framework-3
 
 This is a boilerplate template for creating **Serverless Framework v3** deployments, seamlessly integrated within the Turborepo monorepo architectures.
 
