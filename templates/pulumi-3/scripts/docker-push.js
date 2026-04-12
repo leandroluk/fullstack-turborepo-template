@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const REGISTRY = process.env.REGISTRY ?? 'localhost:5000'
 const TAG = process.env.TAG ?? 'latest'
 
-const REPO_ROOT = resolve(__dirname, '..', '..', '..', '..')
+const REPO_ROOT = resolve(__dirname, '..', '..', '..')
 
 function run(cmd, args) {
   const result = spawnSync(cmd, args, { stdio: 'inherit', shell: true })

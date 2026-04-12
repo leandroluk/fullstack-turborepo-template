@@ -14,6 +14,7 @@
     "docker:push": "dotenvx run -- node scripts/docker-push.js",
     "deploy": "dotenvx run -- node scripts/deploy.js",
     "pipeline": "dotenvx run -- node scripts/docker-push.js && dotenvx run -- node scripts/deploy.js",
+    "ci": "dotenvx run -- node scripts/ci.js",
     "preview:local": "pulumi preview --stack local",
     "up:local": "pulumi up --yes --stack local",
     "destroy:local": "pulumi destroy --yes --stack local",
