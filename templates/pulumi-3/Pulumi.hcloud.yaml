@@ -1,0 +1,24 @@
+config:
+  k8s:provider: hcloud
+  hcloud:token:
+    secure: <SUA_KEY_AQUI>
+  k8s:baseDomain: "hcloud.yourdomain.com"
+  k8s:hcloudLocation: "nbg1"
+  k8s:hcloudServerType: "cx22"
+  k8s:vpcNetworkCidr: "10.0.0.0/16"
+  k8s:apiImage: "registry.yourdomain.com/api:latest"
+  k8s:webImage: "registry.yourdomain.com/web:latest"
+  k8s:docImage: "registry.yourdomain.com/doc:latest"
+  k8s:apiReplicas: "2"
+  k8s:webReplicas: "2"
+  k8s:docReplicas: "1"
+  k8s:postgresUser: "postgres"
+  k8s:postgresDb: "app"
+  k8s:postgresPassword:
+    secure: <PASSWORD>
+  k8s:redisPassword:
+    secure: <PASSWORD>
+  k8s:minioRootUser: "minioadmin"
+  k8s:minioBucket: "app"
+  k8s:minioRootPassword:
+    secure: <PASSWORD>

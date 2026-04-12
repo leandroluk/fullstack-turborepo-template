@@ -2,7 +2,7 @@
 import type * as k8s from '@pulumi/kubernetes';
 import type * as pulumi from '@pulumi/pulumi';
 
-export type ProviderName = 'local' | 'aws' | 'gcp' | 'baremetal';
+export type ProviderName = 'local' | 'aws' | 'gcp' | 'baremetal' | 'hcloud';
 
 /** Result returned by every cluster bootstrap function */
 export interface ClusterResult {

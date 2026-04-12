@@ -63,6 +63,11 @@ switch (providerName) {
     clusterResult = createCluster();
     break;
   }
+  case 'hcloud': {
+    const {createCluster} = await import('./hcloud/cluster.js');
+    clusterResult = createCluster();
+    break;
+  }
   case 'local':
   case 'baremetal':
   default: {

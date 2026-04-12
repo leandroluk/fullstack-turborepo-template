@@ -1,6 +1,6 @@
 // src/shared/ingress.ts
 import * as k8s from '@pulumi/kubernetes';
-import * as pulumi from '@pulumi/pulumi';
+import type * as pulumi from '@pulumi/pulumi';
 import type {ProviderName} from './types.js';
 
 /**
@@ -47,6 +47,14 @@ function buildServiceValues(providerName: ProviderName): {type: string; annotati
       return {
         type: 'LoadBalancer',
         annotations: {'networking.gke.io/load-balancer-type': 'External'},
+      };
+    case 'hcloud':
+      return {
+        type: 'LoadBalancer',
+        annotations: {
+          'load-balancer.hetzner.cloud/location': 'nbg1',
+          'load-balancer.hetzner.cloud/use-private-ip': 'true',
+        },
       };
     case 'local':
     case 'baremetal':

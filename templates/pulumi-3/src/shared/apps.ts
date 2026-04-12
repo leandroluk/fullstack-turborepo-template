@@ -10,7 +10,6 @@ interface AppDeploymentArgs {
   replicas: pulumi.Input<number>;
   port: number;
   env?: k8s.types.input.core.v1.EnvVar[];
-  /** Names of Secrets to mount as envFrom */
   envFromSecrets?: pulumi.Input<string>[];
 }
 
@@ -18,6 +17,8 @@ function createAppDeployment(args: AppDeploymentArgs): k8s.core.v1.Service {
   const {provider, namespace, name, image, replicas, port, env = [], envFromSecrets = []} = args;
 
   const labels = {app: name};
+
+  const finalEnv = [...env, {name: 'PORT', value: port.toString()}];
 
   new k8s.apps.v1.Deployment(
     `${name}-deployment`,
@@ -35,10 +36,8 @@ function createAppDeployment(args: AppDeploymentArgs): k8s.core.v1.Service {
                 image,
                 imagePullPolicy: 'IfNotPresent',
                 ports: [{containerPort: port}],
-                env,
-                envFrom: envFromSecrets.map(secretName => ({
-                  secretRef: {name: secretName},
-                })),
+                env: finalEnv,
+                envFrom: envFromSecrets.map(secretName => ({secretRef: {name: secretName}})),
                 resources: {
                   requests: {cpu: '50m', memory: '128Mi'},
                   limits: {cpu: '500m', memory: '512Mi'},
@@ -77,7 +76,6 @@ function createAppDeployment(args: AppDeploymentArgs): k8s.core.v1.Service {
     {provider}
   );
 }
-
 export interface AppsArgs {
   provider: k8s.Provider;
   namespace: pulumi.Input<string>;
@@ -87,14 +85,8 @@ export interface AppsArgs {
   apiReplicas: number;
   webReplicas: number;
   docReplicas: number;
-  /** Postgres secret name */
   postgresSecretName: pulumi.Input<string>;
-  /** Redis secret name */
   redisSecretName: pulumi.Input<string>;
-  /**
-   * Storage secret name (minio-secret / storage-secret).
-   * Injected into all pods with S3_* env vars.
-   */
   storageSecretName: pulumi.Input<string>;
 }
 

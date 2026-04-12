@@ -58,3 +58,10 @@ export const gkeMaxNodeCount = config.getNumber('gkeMaxNodeCount') ?? 10;
 export const metallbAddressPool = config.get('metallbAddressPool') ?? '192.168.1.200-192.168.1.210';
 // Storage class to use for PVCs (e.g. "local-path", "longhorn", "nfs-client")
 export const storageClass = config.get('storageClass') ?? 'local-path';
+
+// ── Hetzner Cloud (optional) ─────────────────────────────────────────────────
+export const hcloudToken = config.get('hcloudToken') ?? '';
+export const hcloudNetworkName = config.get('hcloudNetworkName') ?? 'default';
+export const hcloudImage = config.get('hcloudImage') ?? 'ubuntu-24.04';
+export const hcloudServerType = config.get('hcloudServerType') ?? 'cx21';
+export const hcloudLocation = config.get('hcloudLocation') ?? 'nbg1';

@@ -24,6 +24,7 @@
     "@pulumi/awsx": "^3.0.0",
     "@pulumi/eks": "^3.0.0",
     "@pulumi/gcp": "9.19.0",
+    "@pulumi/hcloud": "1.32.1",
     "@pulumi/kubernetes": "4.28.0",
     "@pulumi/pulumi": "^3.113.0"
   },
